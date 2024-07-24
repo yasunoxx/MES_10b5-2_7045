@@ -1,0 +1,38 @@
+#define DEV_INFO	1
+ #define FILE_DEVICE	0x0001
+ #define FLUSH_DEVICE	0x0002
+ #define RO_DEVICE	0x0004
+#define MAXPACKET	3
+#define GET_MAC		4
+#define SET_HANDLE	5
+#define DISK_SIZE	6
+#define DISK_OFFSET	7
+#define DISK_PAGE	8
+#define FILE_SIZE	9
+#define SCI_FREQ	32
+#define SCI_SPEED	33
+#define SCI_GETID	34
+#define FLUSH_PAGESIZE	35
+#define FLUSH_ERASE	36
+#define FLUSH_FREQ	37
+#define NE_GETCONFIG	38
+#define LCD_CLEAR	39
+#define RAM_SIZE	40
+#define RAM_OFFSET	41
+#define I2C_COMMAND	42
+#define I2C_ADDRSIZE	43
+#define I2C_TIMEOVER	44
+#define LCD_SETFONT	45
+#define USB_RESET	46
+#define USB_SETUP	47
+#define USB_GETSPEED	48
+ #define USB_LOW	1
+ #define USB_FULL	2
+
+#define READ_FILE	1
+#define APPEND_FILE	2
+#define DIR_FILE	4
+
+#define USB_EP		1
+#define USB_TOGGLE	2
+#define USB_HDRSIZ	2
