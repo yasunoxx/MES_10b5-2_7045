@@ -7,11 +7,9 @@ MES_10b5s-2_7045
 MES_SRC_10b5s+2 Copyright (C) -2009 Yukio Mitsuiwa, Microtechno
 
 オリジナルソースMES_SRC_10b5s+2.tgzは、マイクロテクノ社のアーカイブから取得した。
-
 https://web.archive.org/web/20090104055919/http://microtechno.dip.jp/~mt_req/cdrom/VER2/H8OS/index.htm
 
 MES, H8/OSの原作者である三岩幸夫氏のページは、アーカイブされている
-
 https://web.archive.org/web/20051028051248/http://mes.sourceforge.jp/mes/index.html
 
 
@@ -25,15 +23,10 @@ https://web.archive.org/web/20051028051248/http://mes.sourceforge.jp/mes/index.h
 
 
 ツールの依存関係：
-
 ・sh-gcc-3.2
-
 ・sh-newlib-1.10.0
-
 ・sh-binutils-2.13
-
 ・ホスト環境のgcc, make(tool/configを生成するために必要)
-
 ※必要に応じて、上記のbuildが通るOSが必要になるだろう。
 
 
@@ -45,19 +38,14 @@ https://web.archive.org/web/20051028051248/http://mes.sourceforge.jp/mes/index.h
 
 
 TODO：
+
 ・今後はプロジェクト名を"MES_10b5-2_7045"に統一する。
-
 ・クロスコンパイラを現行バージョンのGCC(sh-unknown-elf)に対応させる。
-
 ・SPIおよびSDカードストレージのサポート。
-
 ・適当なUSBホスト、ストレージクラスUSBデバイスのサポート。
-
 ・Wi-Fi, Bluetooth, IEEE802.15.4/ZigBeeのサポート。有線LANのサポートは行わないかも。
-
 ・SH7144サポート。SH以外のアーキテクチャサポート(MC680x0, Microblaze等)も考えている。
 
 
 (C)2024 yasunoxx▼Julia <yasunoxx@gmail.com>
-
 ・本件に関する問い合わせメール等、簡潔な内容であれば応答するかもしれない。保証はしない。
