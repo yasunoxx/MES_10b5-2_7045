@@ -40,10 +40,15 @@ https://web.archive.org/web/20051028051248/http://mes.sourceforge.jp/mes/index.h
 TODO：
 
 ・今後はプロジェクト名を"MES_10b5-2_7045"に統一する。
+
 ・クロスコンパイラを現行バージョンのGCC(sh-unknown-elf)に対応させる。
+
 ・SPIおよびSDカードストレージのサポート。
+
 ・適当なUSBホスト、ストレージクラスUSBデバイスのサポート。
+
 ・Wi-Fi, Bluetooth, IEEE802.15.4/ZigBeeのサポート。有線LANのサポートは行わないかも。
+
 ・SH7144サポート。SH以外のアーキテクチャサポート(MC680x0, Microblaze等)も考えている。
 
 
