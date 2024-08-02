@@ -17,8 +17,10 @@ core7045.mot : $(SRCS7045) Makefile
 	rm a.out
 
 conf7045.mot : conf7045.def
+	(cd tool;make)
 	tool/config < conf7045.def > conf7045.mot
 
 clean :
 	rm -f sys*.mot
+	(cd tool;make clean)
 	(cd MES;make clean)

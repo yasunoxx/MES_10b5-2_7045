@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 struct regsym {
 	char		name[8];
@@ -77,6 +78,8 @@ int main() {
 	char	buffer[64], name[7], symname[10];
 	unsigned char sum;
 	int	i, bus, cs, cs_addr, addr, irq, rate, bits, b, n;
+
+	printf( "S00A0000434F4E464947003F\n" );	// S-record header "CONFIG"
 
 	addr = 0x400;
 	while(!feof(stdin)) {
@@ -175,4 +178,6 @@ int main() {
 		printf("%02X\n", sum);
 		addr += 16;
 	}
+
+	printf( "S9030000FC\n" );	// S-record termination
 }
