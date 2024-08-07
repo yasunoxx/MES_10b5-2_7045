@@ -77,11 +77,12 @@ int get_symaddr(char *regname, struct regsym *list) {
 int main() {
 	char	buffer[64], name[7], symname[10];
 	unsigned char sum;
-	int	i, bus, cs, cs_addr, addr, irq, rate, bits, b, n;
+	int	i, bus, cs, cs_addr, addr, irq, rate, bits, b, n, loop, addr_step;
 
 	printf( "S00A0000434F4E464947003F\n" );	// S-record header "CONFIG"
 
 	addr = 0x400;
+	addr_step = 0;
 	while(!feof(stdin)) {
 		scanf("%s", buffer);
 		if(memcmp(buffer, "end", 3) == 0) break;
@@ -146,37 +147,54 @@ int main() {
 				sscanf(buffer, "%x", &bits);
 			}
 		}
-		if(bits == 0) printf("S110%04X", addr);
-		else printf("S113%04X", addr);
-		sum = 0x10;
+//		if(bits == 0) printf("S110%04X", addr);
+//		else printf("S113%04X", addr);
+		printf("S113%04X", addr);
+//		sum = 0x10;
+		sum = 0x13;
 		sum += (addr >> 8) & 0xff;
 		sum += addr & 0xff;
 		for(i = 0;i < 6;i++) {
 			printf("%02X", name[i]);
 			sum += name[i];
 		}
+		addr_step += 6;
 		printf("%02X", bus);
 		sum += bus;
+		addr_step += 1;
 		printf("%02X", cs);
 		sum += cs;
+		addr_step += 1;
 		printf("%08X", cs_addr);
 		sum += (cs_addr >> 24) & 0xff;
 		sum += (cs_addr >> 16) & 0xff;
 		sum += (cs_addr >> 8) & 0xff;
 		sum += cs_addr & 0xff;
+		addr_step += 4;
 		if(bits != 0) {
 			printf("%08X", bits);
 			sum += (bits >> 24) & 0xff;
 			sum += (bits >> 16) & 0xff;
 			sum += (bits >> 8) & 0xff;
 			sum += bits & 0xff;
+			addr_step += 4;
 		} else {
 			printf("%02X", irq);
 			sum += irq;
+			addr_step += 1;
+			// end of first line
+
+			// paddding zero ...
+			for( loop = 0x0400 + addr_step; loop <= 0x040F; loop++ )
+			{
+				printf( "00" );
+			}
 		}
+
 		sum = ~sum;
 		printf("%02X\n", sum);
 		addr += 16;
+		addr_step = 0;
 	}
 
 	printf( "S9030000FC\n" );	// S-record termination
